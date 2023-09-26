@@ -1,0 +1,11 @@
+:root {
+  --scale-paran: 1.250;
+  --base-size: 16px;
+
+  --title-notification: cal(var(--base-size) * var(--scale-paran));
+  --description-orientation: var(--base-size);
+}
+
+body {
+  font-size: 100%;
+}
