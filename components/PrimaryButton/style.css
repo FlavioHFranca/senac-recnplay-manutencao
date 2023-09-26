@@ -1,0 +1,34 @@
+.primary_button_root {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--sub-component);
+  background-color: transparent;
+}
+
+.primary_button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  margin: 0;
+  padding: 10px 16px;
+  color: var(--white);
+  font-size: 18px;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  background-color: var(--violet);
+  box-shadow: 0 7px 12px -5px var(--violet-shadow-medium);
+}
+
+.primary_button:hover {
+  cursor: pointer;
+  color: var(--medium-blue);
+  box-shadow: 0 7px 16px -5px var(--violet-shadow-dark);
+}

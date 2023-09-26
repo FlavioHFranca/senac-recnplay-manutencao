@@ -1,0 +1,64 @@
+.problem_section_root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: var(--component);
+  max-width: 320px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.problem_section_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: var(--sub-component);
+  max-width: 288px;
+  height: auto;
+  margin: 0;
+  padding: 16px 16px 30px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--orange-low);
+}
+
+.ps_header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  margin: 0 0 8px 0;
+  background-color: transparent;
+}
+
+.ps_header i {
+  font-size: 20px;
+  color: var(--orange-dark);
+  margin-right: 8px;
+}
+
+.ps_header h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  color: var(--orange-dark);
+  letter-spacing: -0.01rem;
+  line-height: 100%;
+}
+
+.problem_description p {
+  font-family: 'Manrope', sans-serif;
+  font-size: var(--base-size);
+  color: var(--orange-medium);
+  letter-spacing: 0.01rem;
+  line-height: 160%;
+}
