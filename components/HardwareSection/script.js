@@ -1,14 +1,6 @@
-// import CreateIcon from "../../constants/CreateIcon.js";
-// import InfoButton from "../InfoButton/script.js";
-
-import CreateImages from "../../constants/CreateImages.js";
-
-// const hardwareImages = new CreateImages();
-// const hardwareImagesArray = hardwareImages.hardwareImages();
-// hardwareImagesArray.forEach((datas, index) => {
-//   console.log(datas.image_name, datas.info_tool);
-// });
-
+import GetImages from "../../constants/GetImages.js";
+import CreateIcon from "../../constants/CreateIcon.js";
+import InfoButton from "../../components/InfoButton/script.js";
 
 document.addEventListener("DOMContentLoaded", createHardwareSection());
 
@@ -25,17 +17,13 @@ function createHardwareSection() {
 };
 
 function hardwareHeader() {
-  // const icon = CreateIcon("fa-computer");
-  const icon = document.createElement("i");
+  const icon = CreateIcon("fa-memory");
   icon.classList.add("fa-solid");
   icon.classList.add("fa-circle-info");
 
   const headerTitle = document.createElement("h3");
   headerTitle.textContent = "Hardware";
-  // const infoButton = InfoButton("Peças e equipamentos físicos do computador.");
-  const infoButton = document.createElement("i");
-  infoButton.classList.add("fa-solid");
-  infoButton.classList.add("fa-circle-info");
+  const infoButton = InfoButton("Peças e equipamentos físicos do computador.");
 
   const titleWrapper = document.createElement("section");
   titleWrapper.classList.add("title_wrapper");

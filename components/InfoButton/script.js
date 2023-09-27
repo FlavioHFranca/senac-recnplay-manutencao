@@ -1,7 +1,5 @@
 import CreateIcon from "../../constants/CreateIcon.js";
 
-// document.addEventListener("DOMContentLoaded", infoButton());
-
 function InfoButton(sectionInfo) {
   try {
     const infoButton = document.createElement("span");
@@ -32,7 +30,9 @@ function InfoButton(sectionInfo) {
     infoTool.appendChild(CreateIcon("fa-circle-info"));
     infoTool.appendChild(p);
 
-    const infoButtonRoot = document.getElementById("info_button_root");
+    const infoButtonRoot = document.createElement("section");
+    infoButtonRoot.id = "info_button_root";
+    infoButtonRoot.classList.add("info_button_root");
     infoButtonRoot.append(infoButton);
     infoButtonRoot.append(infoTool);
 
