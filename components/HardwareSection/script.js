@@ -1,6 +1,7 @@
 import GetImages from "../../constants/GetImages.js";
 import CreateIcon from "../../constants/CreateIcon.js";
 import InfoButton from "../../components/InfoButton/script.js";
+import CreateModalInfo from "../InfoModal/script.js";
 
 document.addEventListener("DOMContentLoaded", createHardwareSection());
 
@@ -18,8 +19,6 @@ function createHardwareSection() {
 
 function hardwareHeader() {
   const icon = CreateIcon("fa-memory");
-  icon.classList.add("fa-solid");
-  icon.classList.add("fa-circle-info");
 
   const headerTitle = document.createElement("h3");
   headerTitle.textContent = "Hardware";
@@ -43,29 +42,22 @@ function hardwareHeader() {
 };
 
 function imgContainer() {
-  const imgsArray = Array(
-    "cooler_secao.png",
-    "disco_rigido_secao.png",
-    "fonte_de_alimentacao_secao.png",
-    "memoria_ram_secao.png",
-    "monitor_secao.png",
-    "pincel_secao.png",
-    "placa_de_video_secao.png",
-    "placa_mae_secao.png",
-    "processador_secao.png",
-    "ssd_secao.png"
-  );
+  const getImages = new GetImages();
+  const imgsArray = getImages.getHardwareImages();
 
   const container = document.createElement("section");
   container.classList.add("hardware_img_container");
 
-  imgsArray.forEach(name => {
+  imgsArray.forEach(item => {
     const figure = document.createElement("figure");
     figure.classList.add("hardware_figure");
 
+    figure.onmouseover = CreateModalInfo(item.info.name, true);
+    figure.onmousedown = CreateModalInfo(item.info.name, false);
+
     const img = document.createElement("img");
-    img.src = `./assets/imgs/hardware/imagens_secao/${name}`;
-    // img.alt = `${alt}`;
+    img.src = `./assets/imgs/hardware/imagens_secao/${item.name}`;
+    img.alt = `${item.alt}`;
 
     figure.append(img);
     container.append(figure);

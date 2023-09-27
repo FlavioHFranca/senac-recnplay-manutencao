@@ -1,4 +1,4 @@
-function CreateModalInfo() {
+function CreateModalInfo(image, status) {
   const container = document.createElement("section");
   const figure = document.createElement("figure");
   const img = document.createElement("img");

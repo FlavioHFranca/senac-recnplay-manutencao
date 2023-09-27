@@ -62,10 +62,6 @@
   color: var(--gray-white);
 }
 
-.icon_wrapper {}
-
-.icon_wrapper i {}
-
 .hardware_img_container {
   position: relative;
   z-index: var(--sub-component);
