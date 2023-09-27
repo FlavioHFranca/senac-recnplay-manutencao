@@ -1,20 +1,87 @@
-import CreateIcon from "../../constants/CreateIcon.js";
-import InfoButton from "../InfoButton/script.js";
+// import CreateIcon from "../../constants/CreateIcon.js";
+// import InfoButton from "../InfoButton/script.js";
+
+import CreateImages from "../../constants/CreateImages.js";
+
+// const hardwareImages = new CreateImages();
+// const hardwareImagesArray = hardwareImages.hardwareImages();
+// hardwareImagesArray.forEach((datas, index) => {
+//   console.log(datas.image_name, datas.info_tool);
+// });
+
 
 document.addEventListener("DOMContentLoaded", createHardwareSection());
 
 function createHardwareSection() {
-  // hardware section
-};
+  const hardwareContainer = document.createElement("section");
+  hardwareContainer.id = "hardware_container";
+  hardwareContainer.classList.add("hardware_container");
 
-function hardwareContainer() {
-  // hardware section container;
+  hardwareContainer.append(hardwareHeader());
+  hardwareContainer.append(imgContainer());
+
+  const hardwareSectionRoot = document.getElementById("hardware_section_root");
+  hardwareSectionRoot.appendChild(hardwareContainer);
 };
 
 function hardwareHeader() {
-  // icon, title, infbutton;
+  // const icon = CreateIcon("fa-computer");
+  const icon = document.createElement("i");
+  icon.classList.add("fa-solid");
+  icon.classList.add("fa-circle-info");
+
+  const headerTitle = document.createElement("h3");
+  headerTitle.textContent = "Hardware";
+  // const infoButton = InfoButton("Peças e equipamentos físicos do computador.");
+  const infoButton = document.createElement("i");
+  infoButton.classList.add("fa-solid");
+  infoButton.classList.add("fa-circle-info");
+
+  const titleWrapper = document.createElement("section");
+  titleWrapper.classList.add("title_wrapper");
+  titleWrapper.append(icon);
+  titleWrapper.append(headerTitle);
+
+  const iconWrapper = document.createElement("section");
+  iconWrapper.classList.add("icon_wrapper");
+  iconWrapper.append(infoButton);
+
+  const hardwareHeader = document.createElement("section");
+  hardwareHeader.classList.add("hardware_header");
+  hardwareHeader.append(titleWrapper);
+  hardwareHeader.append(iconWrapper);
+
+  return hardwareHeader;
 };
 
-function hardwareImgBox() {
-  // figure, img
+function imgContainer() {
+  const imgsArray = Array(
+    "cooler_secao.png",
+    "disco_rigido_secao.png",
+    "fonte_de_alimentacao_secao.png",
+    "memoria_ram_secao.png",
+    "monitor_secao.png",
+    "pincel_secao.png",
+    "placa_de_video_secao.png",
+    "placa_mae_secao.png",
+    "processador_secao.png",
+    "ssd_secao.png"
+  );
+
+  const container = document.createElement("section");
+  container.classList.add("hardware_img_container");
+
+  imgsArray.forEach(name => {
+    const figure = document.createElement("figure");
+    figure.classList.add("hardware_figure");
+
+    const img = document.createElement("img");
+    img.src = `./assets/imgs/hardware/imagens_secao/${name}`;
+    // img.alt = `${alt}`;
+
+    figure.append(img);
+    container.append(figure);
+  });
+
+  return container;
 };
