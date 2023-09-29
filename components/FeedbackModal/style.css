@@ -1,0 +1,103 @@
+.fm_root {
+  z-index: var(--modal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 588px;
+  height: 156px;
+  margin: 0;
+  padding: 26px;
+  outline: 3px solid #E6E4F5;
+  border-radius: 20px;
+  background-color: #FAFAFA;
+  box-shadow: 0px 5px 0px #E6E4F5;
+}
+
+.fm_header {
+  z-index: var(--modal-sub-component);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+  background-color: transparent;
+}
+
+.fm_header i {
+  font-size: 20px;
+  color: #5EE348;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #4EC63A;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.fm_header .fm_title {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #383450;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.01rem;
+  line-height: 100%;
+}
+
+.fm_body {
+  z-index: var(--modal-sub-component);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 26px;
+  background-color: transparent;
+}
+
+.fm_body .fm_description {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #575274;
+  margin: 0;
+  padding: 0;
+  line-height: 150%;
+}
+
+.fm_footer {
+  z-index: var(--modal-sub-component);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  background-color: transparent;
+}
+
+.fm_footer .fm_footer_btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 120px;
+  height: 37px;
+  border: 2px solid #4E39CC;
+  border-radius: 8px;
+  background-color: #5944EA;
+  box-shadow: 0px 4px 0px #4531C0;
+  font-family: "Nunito", sans-serif;
+  color: #FAFAFA;
+  font-weight: bolder;
+  line-height: 100%;
+  font-size: 18px;
+  line-height: 100%;
+}
