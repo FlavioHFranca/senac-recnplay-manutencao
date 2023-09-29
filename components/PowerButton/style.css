@@ -1,16 +1,18 @@
 .power_button_root {
   position: relative;
-  z-index: var(--sub-component);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 70px;
   height: 70px;
+  border: none;
+  margin: 0;
+  padding: 0;
   background-color: transparent;
 }
 
-.power_button {
+.pb_btn {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -18,29 +20,28 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  border: 5px solid #313131;
   border-radius: 50%;
+  margin: 0;
   padding: 0;
-  transition: .2s;
-}
-
-.power_button:hover {
-  cursor: pointer;
-}
-
-.power_button i {
+  background-color: #363636;
+  box-shadow: 0px 4px 0px #2B2B2B;
+  color: #2D2D2D;
   font-size: 32px;
+  transition: .1s;
 }
 
-.power_button.off {
-  color: var(--black);
-  border: 2px solid var(--black);
-  background-color: var(--grafite-medium);
-  box-shadow: 0 6px 12px -2px #2C2C2C45;
+.pb_btn:hover {
+  cursor: pointer;
+  border: 5px solid #383838;
+  background-color: #454545;
+  box-shadow: 0px 4px 0px #313131;
+  color: #383838;
 }
 
-.power_button.on {
-  color: var(--green-dark);
-  border: 2px solid var(--green-medium);
-  background-color: var(--green-low);
-  box-shadow: 0 0 18px -2px #5EE34835;
+.pb_btn.on {
+  border: 5px solid #3BBD25;
+  background-color: #5EE348;
+  box-shadow: 0px 0px 24px #5EE34845;
+  color: #3BBD25;
 }
