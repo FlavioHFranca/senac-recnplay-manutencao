@@ -1,4 +1,4 @@
-function CreateIcon(iconName, method = null) {
+const CreateIcon = (iconName, method = null) => {
   const i = document.createElement("i");
 
   i.classList.add("fa-solid");
