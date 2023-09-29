@@ -1,43 +1,48 @@
 import CreateIcon from "../../constants/CreateIcon.js";
 
-function closeNotification() {
-  const notificationRoot = document.getElementById("notification_root");
-  const notification = document.getElementById("notification");
-
-  notification.style.display = "none";
-  notificationRoot.style.display = "none";
-};
-
-function CreateNotification(textContent) {
+const Notification = (strongText, message) => {
   try {
-    const notification = document.createElement("span");
-    notification.id = "notification";
-    notification.classList.add("notification");
-    notification.classList.add("show");
-
-    notification.append(textContent);
-    notification.append(CreateIcon("fa-xmark", function(){ closeNotification() }));
-  
-    const notificationRoot = document.getElementById("notification_root");
-    notificationRoot.style.display = "flex";
-    notificationRoot.appendChild(notification);
-
-    if (notificationRoot.style.display == "flex") {
-      setTimeout(() => {
-        notification.classList.remove("show");
-        notification.classList.add("hidden");
-      
-        setTimeout(() => {
-          notification.style.display = "none";
-          notificationRoot.style.display = "none";
-        }, 1000);
-  
-      }, 2500);
+    const root = document.getElementById("notification_root");
+    root.classList.remove("show");
+    root.classList.remove("hidden");
+    while(root.firstChild) {
+      root.removeChild(root.lastChild);
     };
+    root.appendChild(createBody(strongText, message));
+    root.classList.add("show");
 
+    setTimeout(() => {
+      root.classList.add("hidden");
+      setTimeout(() => {
+        root.classList.remove("show");
+      }, 2000);
+    }, 2000);
   } catch(e) {
-    console.log(`Erro: ${e.message}`);
+    console.log(`Error: ${e.message}`);
   };
 };
 
-export default CreateNotification;
+const createBody = (strongText, message) => {
+  const body = document.createElement("section");
+  body.id = "n_body";
+  body.classList.add("n_body");
+  body.classList.add("show");
+  
+  const icon = CreateIcon("fa-circle-exclamation");
+  
+  const strong = document.createElement("strong");
+  strong.classList.add("n_type");
+  strong.textContent = strongText;
+
+  const description = document.createElement("p");
+  description.classList.add("n_description");
+  description.append(strong);
+  description.append(message);
+
+  body.append(icon);
+  body.append(description);
+
+  return body;
+};
+
+export default Notification;

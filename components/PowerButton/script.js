@@ -1,4 +1,5 @@
 import CreateIcon from "../../constants/CreateIcon.js";
+import Notification from "../Notification/script.js";
 
 document.addEventListener("DOMContentLoaded", () => PowerButton());
 
@@ -28,8 +29,10 @@ const onOff = (id_element) => {
   if (element.classList.contains("on")) {
     element.classList.remove("on");
     element.classList.add("off");
+    Notification("Aviso:", "Você desligou o computador.");
   } else {
     element.classList.remove("off");
     element.classList.add("on");
+    Notification("Aviso:", "Você ligou o computador.");
   }
 };
