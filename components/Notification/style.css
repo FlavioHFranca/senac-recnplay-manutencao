@@ -14,30 +14,43 @@
 }
 
 .notification_root.show {
-  animation: showBody 1s forwards;
+  animation: showBody 1s forwards ease-in-out;
 }
 
 .notification_root.hidden {
-  animation: hiddenBody 1s forwards;
+  animation: hiddenBody 1s forwards ease-in-out;
 }
 
 @keyframes showBody {
   0% {
     top: -200px;
+    opacity: 0;
   }
+
+  80% {
+    top: 55px;
+  }
+
   100% {
-    top: 100px
+    top: 50px;
+    opacity: 1;
   }
 }
 
 @keyframes hiddenBody {
   0% {
-    top: 100px;
+    top: 50px;
     opacity: 1;
   }
-  100% {
-    top: 100px;
+
+  90% {
+    top: 50px;
     opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    top: -200px;
   }
 }
 

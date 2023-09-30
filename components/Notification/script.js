@@ -3,20 +3,26 @@ import CreateIcon from "../../constants/CreateIcon.js";
 const Notification = (strongText, message) => {
   try {
     const root = document.getElementById("notification_root");
-    root.classList.remove("show");
-    root.classList.remove("hidden");
+
     while(root.firstChild) {
       root.removeChild(root.lastChild);
     };
+
     root.appendChild(createBody(strongText, message));
+    root.classList.remove("hidden");
     root.classList.add("show");
 
     setTimeout(() => {
+      root.classList.remove("show");
       root.classList.add("hidden");
+
       setTimeout(() => {
+        root.classList.remove("hidden");
         root.classList.remove("show");
-      }, 2000);
+      }, 1000);
+
     }, 2000);
+
   } catch(e) {
     console.log(`Error: ${e.message}`);
   };
