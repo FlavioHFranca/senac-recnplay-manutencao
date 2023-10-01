@@ -1,5 +1,8 @@
 .power_button_root {
-  position: relative;
+  position: absolute;
+  z-index: var(--sub-component);
+  right: 25px;
+  bottom: 25px;
   display: flex;
   flex-direction: row;
   justify-content: center;
