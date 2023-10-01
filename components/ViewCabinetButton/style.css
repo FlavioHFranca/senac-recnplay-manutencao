@@ -38,3 +38,13 @@
   color: #929292;
   font-size: 22px;
 }
+
+.vc_btn.active {
+  border: 3px solid #212121;
+  background-color: #333232;
+  box-shadow: 0px 4px 0px #252525;
+}
+
+.vc_btn.active i {
+  color: #212121;
+}

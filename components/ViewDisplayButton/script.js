@@ -1,22 +1,22 @@
 import CreateIcon from "../../constants/CreateIcon.js";
 
-document.addEventListener("DOMContentLoaded", () => CreateViewCabinetButton());
+document.addEventListener("DOMContentLoaded", () => CreateViewDisplayButton());
 
-const CreateViewCabinetButton = () => {
+const CreateViewDisplayButton = () => {
   try {
-    const computerButtonRoot = document.getElementById("view_cabinet_button_root");
-    computerButtonRoot.appendChild(CreateButton());
+    const computerButtonRoot = document.getElementById("view_display_button_root");
+    computerButtonRoot.appendChild(createButton());
   } catch (e) {
     console.log(`Erro: ${e.message}`);
   };
 };
 
-const CreateButton = () => {
+const createButton = () => {
   const button = document.createElement("button");
-  button.id = "vc_btn";
-  button.classList.add("vc_btn");
-  button.appendChild(CreateIcon("fa-mobile"));
-  
+  button.id = "vd_btn";
+  button.classList.add("vd_btn");
+  button.appendChild(CreateIcon("fa-display"));
+
   button.onclick = function () {
     handleState(button.id);
   };
@@ -28,18 +28,18 @@ const handleState = (id_button) => {
   const button = document.getElementById(id_button);
   if (button.classList.contains("active")) {
     button.classList.remove("active");
-    ViewCabinet(false);
+    ViewDisplaySection(false);
   } else {
     button.classList.add("active");
-    ViewCabinet(true);
+    ViewDisplaySection(true);
   };
 };
 
-const ViewCabinet = (sectionState) => {
+const ViewDisplaySection = (sectionState) => {
   // component function...
   if (sectionState) {
-    console.log("Cabinet...");
+    console.log("Display...");
   } else {
     console.log("Initial State...");
-  }
+  };
 };
