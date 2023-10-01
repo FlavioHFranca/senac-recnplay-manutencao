@@ -1,0 +1,63 @@
+.background_root {
+  position: relative;
+  z-index: var(--component);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 5px solid #3E3E3E;
+  border-radius: 30px;
+  width: 1080px;
+  height: 849px;
+  background-color: #313131;
+}
+
+.background_root .bg_span {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  z-index: var(--sub-component);
+  background-color: #3E3E3E;
+}
+
+.background_root span:nth-child(1) {
+  top: 20px;
+  left: 20px;
+}
+
+.background_root span:nth-child(2) {
+  top: 20px;
+  left: 50%;
+}
+
+.background_root span:nth-child(3) {
+  top: 20px;
+  right: 20px;
+}
+
+.background_root span:nth-child(4) {
+  top: 50%;
+  left: 20px;
+}
+
+.background_root span:nth-child(5) {
+  top: 50%;
+  right: 20px;
+}
+
+.background_root span:nth-child(6) {
+  bottom: 20px;
+  left: 20px;
+}
+
+.background_root span:nth-child(7) {
+  bottom: 20px;
+  left: 50%;
+}
+
+.background_root span:nth-child(8) {
+  bottom: 20px;
+  right: 20px;
+}

@@ -11,18 +11,3 @@
   height: 100vh;
   background-color: var(--black);
 }
-
-.app-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 1080px;
-  height: 849px;
-  padding: 45px;
-  margin: 0;
-  border: none;
-  border-radius: 20px;
-  background-color: var(--grafite-medium);
-}
