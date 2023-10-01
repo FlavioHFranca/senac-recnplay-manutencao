@@ -1,8 +1,12 @@
 import CreateIcon from "../../constants/CreateIcon.js";
 
 const ProblemNumber = (problemNumber) => {
-  const problemNumberRoot = document.getElementById("problem_number_root");
-  problemNumberRoot.appendChild(createComponent(problemNumber));
+  try {
+    const problemNumberRoot = document.getElementById("problem_number_root");
+    problemNumberRoot.appendChild(createComponent(problemNumber));
+  } catch (e) {
+    console.log(`Error: ${e.message}`);
+  }
 };
 
 const createComponent = (parameter) => {
