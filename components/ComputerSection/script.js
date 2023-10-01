@@ -10,8 +10,17 @@ const ComputerSection = (parameter) => {
 };
 
 const createFullComputer = (parameter) => {
-  const fullComputer = document.createElement("figure");
-  fullComputer.className = "computer_image";
+  let fullComputer = document.getElementById("computer_image") ? document.getElementById("computer_image") : null;
+
+  if (!fullComputer) {
+    fullComputer = document.createElement("figure");
+    fullComputer.id = "computer_image";
+    fullComputer.className = "computer_image";
+  } else {
+    while(fullComputer.firstChild) {
+      fullComputer.removeChild(fullComputer.lastChild);
+    };
+  };
 
   const image = document.createElement("img");
   image.id = "back_image";
@@ -37,7 +46,7 @@ const createFullComputer = (parameter) => {
 
     default:
       break;
-  }
+  };
 
   fullComputer.appendChild(image);
   fullComputer.appendChild(shadow);

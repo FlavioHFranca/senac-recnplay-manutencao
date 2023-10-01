@@ -1,4 +1,6 @@
 import CreateIcon from "../../constants/CreateIcon.js";
+import ComputerSection from "../ComputerSection/script.js";
+import HandleViewButton from "../../constants/HandleViewButton.js";
 
 document.addEventListener("DOMContentLoaded", () => CreateViewDisplayButton());
 
@@ -28,18 +30,10 @@ const handleState = (id_button) => {
   const button = document.getElementById(id_button);
   if (button.classList.contains("active")) {
     button.classList.remove("active");
-    ViewDisplaySection(false);
+    ComputerSection();
   } else {
     button.classList.add("active");
-    ViewDisplaySection(true);
-  };
-};
-
-const ViewDisplaySection = (sectionState) => {
-  // component function...
-  if (sectionState) {
-    console.log("Display...");
-  } else {
-    console.log("Initial State...");
+    ComputerSection("display");
+    HandleViewButton("display");
   };
 };
