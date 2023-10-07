@@ -88,9 +88,9 @@ const showFeedbackModal = async (imgObj) => {
   const currentProblem = await getCurrentProblem();
 
   if (imgObj.imageCode == currentProblem.problem_datas.resolve_code) {
-    CreateFeedbackModal("Resolvido com sucesso!", `Muito bom, você conseguiu resolver o problema. É muito comum uma ${imgObj.title} causar esse tipo de problema no seu computador.`);
+    CreateFeedbackModal("Resolvido com sucesso!", `Muito bom, você conseguiu resolver o problema. É muito comum uma ${imgObj.imageTitle} causar esse tipo de problema no seu computador.`, "success");
   } else {
-    CreateFeedbackModal("O defeito continua...!", `Não é muito comum ${imgObj.title} causar esse tipo de problema no seu computador. Tente outra peça.`);
+    CreateFeedbackModal("O defeito continua...!", `Não é muito comum ${imgObj.imageTitle} causar esse tipo de problema no seu computador. Tente outra peça.`, "fail");
   };
 
 };
