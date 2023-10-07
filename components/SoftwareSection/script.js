@@ -12,7 +12,7 @@ function createHardwareSection() {
   hardwareContainer.id = "software_container";
   hardwareContainer.classList.add("software_container");
 
-  hardwareContainer.append(hardwareHeader());
+  hardwareContainer.append(softwareHeader());
   hardwareContainer.append(imgContainer());
 
   const hardwareSectionRoot = document.getElementById("software_section_root");
@@ -27,8 +27,8 @@ function createInfoModalRoot() {
   return infoModalRoot;
 };
 
-function hardwareHeader() {
-  const icon = CreateIcon("fa-windows");
+function softwareHeader() {
+  const icon = CreateIcon("fa-computer");
 
   const headerTitle = document.createElement("h3");
   headerTitle.textContent = "Sofware";
@@ -53,7 +53,7 @@ function hardwareHeader() {
 
 function imgContainer() {
   const getImages = new GetImages();
-  const imgsArray = getImages.getHardwareImages();
+  const imgsArray = getImages.getSoftwareImages();
 
   const container = document.createElement("section");
   container.classList.add("sofware_img_container");
@@ -66,11 +66,11 @@ function imgContainer() {
     const figureCoords = figure.getBoundingClientRect().top - 180;
 
     const img = document.createElement("img");
-    img.src = `./assets/imgs/software/imagens_secao/${item.name}`;
+    img.src = `./assets/imgs/software/section/${item.name}`;
     img.alt = `${item.alt}`;
     
-    img.onmouseover = () => CreateModalInfo(item.title, `./assets/imgs/software/imagens_descricao/${item.info.name}`, item.info.description, true, INFO_MODAL_ROOT, figureCoords);
-    img.onmouseout = () => CreateModalInfo(item.title, `./assets/imgs/software/imagens_descricao/${item.info.name}`, item.info.description, false, INFO_MODAL_ROOT, figureCoords);
+    img.onmouseover = () => CreateModalInfo(item.title, `./assets/imgs/software/tooltip/${item.info.name}`, item.info.description, true, INFO_MODAL_ROOT, figureCoords);
+    img.onmouseout = () => CreateModalInfo(item.title, `./assets/imgs/software/tooltip/${item.info.name}`, item.info.description, false, INFO_MODAL_ROOT, figureCoords);
     img.onclick = () => { console.log("Show feedbackModal!") };
 
     figure.append(img);

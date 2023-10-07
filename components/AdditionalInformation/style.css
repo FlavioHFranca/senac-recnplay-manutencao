@@ -21,9 +21,9 @@
   margin: 0;
   max-width: 288px;
   height: auto;
-  border: none;
+  border: 4px solid #4A33D6;
   border-radius: 20px;
-  background-color: var(--violet);
+  background-color: #6A53F4;
 }
 
 .add_info_header {
@@ -47,16 +47,17 @@
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
   font-style: normal;
+  font-weight: 700;
   color: var(--blue-dark);
   letter-spacing: -0.01rem;
   line-height: 100%;
 }
 
 .add_info_description p {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-size: var(--base-size);
   font-style: normal;
-  color: var(--medium-blue);
-  letter-spacing: 0.01rem;
-  line-height: 160%;
+  color: #221862;
+  letter-spacing: -0.01rem;
+  line-height: 150%;
 }

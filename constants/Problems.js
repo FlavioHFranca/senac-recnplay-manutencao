@@ -3,26 +3,26 @@ function GetProblems() {
   const problems = Array(
     {
       id: 1,
-      description: "Problema na memória RAM",
-      additinal_information: "Informações sobre o problema na memória RAM.",
+      description: "Problema 1.",
+      additinal_information: "Informações sobre o problema 1.",
       resolved: false,
     },
     {
       id: 2,
-      description: "Problema na Placa de Vídeo.",
-      additinal_information: "Informações sobre o problema na Placa de Vídeo.",
+      description: "Problema 2.",
+      additinal_information: "Informações sobre o problema 2.",
       resolved: false
     },
     {
       id: 3,
-      description: "Problema no SSD.",
-      additinal_information: "Informações sobre o problema no SSD.",
+      description: "Problema 3.",
+      additinal_information: "Informações sobre o problema 3.",
       resolved: false
     },
     {
       id: 4,
-      description: "Problema na Placa Mãe.",
-      additinal_information: "Informações sobre o problema na Placa mãe.",
+      description: "Problema 4.",
+      additinal_information: "Informações sobre o problema 4.",
       resolved: false
     }
   );

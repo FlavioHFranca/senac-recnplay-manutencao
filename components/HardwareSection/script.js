@@ -66,11 +66,11 @@ function imgContainer() {
     const figureCoords = figure.getBoundingClientRect().top - 180;
 
     const img = document.createElement("img");
-    img.src = `./assets/imgs/hardware/imagens_secao/${item.name}`;
+    img.src = `./assets/imgs/hardware/section/${item.name}`;
     img.alt = `${item.alt}`;
     
-    img.onmouseover = () => CreateModalInfo(item.title, `./assets/imgs/hardware/imagens_descricao/${item.info.name}`, item.info.description, true, INFO_MODAL_ROOT, figureCoords);
-    img.onmouseout = () => CreateModalInfo(item.title, `./assets/imgs/hardware/imagens_descricao/${item.info.name}`, item.info.description, false, INFO_MODAL_ROOT, figureCoords);
+    img.onmouseover = () => CreateModalInfo(item.title, `./assets/imgs/hardware/tooltip/${item.info.name}`, item.info.description, true, INFO_MODAL_ROOT, figureCoords);
+    img.onmouseout = () => CreateModalInfo(item.title, `./assets/imgs/hardware/tooltip/${item.info.name}`, item.info.description, false, INFO_MODAL_ROOT, figureCoords);
     img.onclick = () => { console.log("Show feedbackModal!") };
 
     figure.append(img);
