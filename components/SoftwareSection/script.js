@@ -5,26 +5,18 @@ import CreateModalInfo from "../InfoModal/script.js";
 
 const INFO_MODAL_ROOT = "info_modal_root";
 
-document.addEventListener("DOMContentLoaded", createHardwareSection());
+document.addEventListener("DOMContentLoaded", createSoftwareSection());
 
-function createHardwareSection() {
-  const hardwareContainer = document.createElement("section");
-  hardwareContainer.id = "software_container";
-  hardwareContainer.classList.add("software_container");
+function createSoftwareSection() {
+  const softwareContainer = document.createElement("section");
+  softwareContainer.id = "software_container";
+  softwareContainer.classList.add("software_container");
 
-  hardwareContainer.append(softwareHeader());
-  hardwareContainer.append(imgContainer());
+  softwareContainer.append(softwareHeader());
+  softwareContainer.append(imgContainer());
 
-  const hardwareSectionRoot = document.getElementById("software_section_root");
-  hardwareSectionRoot.append(createInfoModalRoot());
-  hardwareSectionRoot.append(hardwareContainer);
-};
-
-function createInfoModalRoot() {
-  const infoModalRoot = document.createElement("section");
-  infoModalRoot.id = INFO_MODAL_ROOT;
-
-  return infoModalRoot;
+  const softwareSectionRoot = document.getElementById("software_section_root");
+  softwareSectionRoot.append(softwareContainer);
 };
 
 function softwareHeader() {
@@ -43,12 +35,12 @@ function softwareHeader() {
   iconWrapper.classList.add("icon_wrapper");
   iconWrapper.append(infoButton);
 
-  const hardwareHeader = document.createElement("section");
-  hardwareHeader.classList.add("software_header");
-  hardwareHeader.append(titleWrapper);
-  hardwareHeader.append(iconWrapper);
+  const softwareHeader = document.createElement("section");
+  softwareHeader.classList.add("software_header");
+  softwareHeader.append(titleWrapper);
+  softwareHeader.append(iconWrapper);
 
-  return hardwareHeader;
+  return softwareHeader;
 };
 
 function imgContainer() {
@@ -56,21 +48,27 @@ function imgContainer() {
   const imgsArray = getImages.getSoftwareImages();
 
   const container = document.createElement("section");
-  container.classList.add("sofware_img_container");
+  container.classList.add("software_img_container");
 
   imgsArray.forEach(item => {
     const figure = document.createElement("figure");
     figure.id = "software_figure";
     figure.classList.add("software_figure");
 
-    const figureCoords = figure.getBoundingClientRect().top - 180;
-
     const img = document.createElement("img");
     img.src = `./assets/imgs/software/section/${item.name}`;
     img.alt = `${item.alt}`;
+
+    const imgObj = {
+      imageSrc: `./assets/imgs/software/tooltip/${item.info.name}`,
+      imageTitle: item.title,
+      imageDescription: item.info.description,
+      imageComplement: item.info.complement
+    };
     
-    img.onmouseover = () => CreateModalInfo(item.title, `./assets/imgs/software/tooltip/${item.info.name}`, item.info.description, true, INFO_MODAL_ROOT, figureCoords);
-    img.onmouseout = () => CreateModalInfo(item.title, `./assets/imgs/software/tooltip/${item.info.name}`, item.info.description, false, INFO_MODAL_ROOT, figureCoords);
+    img.onmouseover = () => CreateModalInfo(imgObj, true, INFO_MODAL_ROOT, { top: figure.offsetTop - 220, left: figure.offsetLeft });
+    img.onmouseout = () => CreateModalInfo(imgObj, false, INFO_MODAL_ROOT, { top: figure.offsetTop - 220, left: figure.offsetLeft });
+
     img.onclick = () => { console.log("Show feedbackModal!") };
 
     figure.append(img);

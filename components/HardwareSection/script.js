@@ -16,15 +16,7 @@ function createHardwareSection() {
   hardwareContainer.append(imgContainer());
 
   const hardwareSectionRoot = document.getElementById("hardware_section_root");
-  hardwareSectionRoot.append(createInfoModalRoot());
   hardwareSectionRoot.append(hardwareContainer);
-};
-
-function createInfoModalRoot() {
-  const infoModalRoot = document.createElement("section");
-  infoModalRoot.id = INFO_MODAL_ROOT;
-
-  return infoModalRoot;
 };
 
 function hardwareHeader() {
@@ -63,14 +55,20 @@ function imgContainer() {
     figure.id = "hardware_figure";
     figure.classList.add("hardware_figure");
 
-    const figureCoords = figure.getBoundingClientRect().top - 180;
-
     const img = document.createElement("img");
     img.src = `./assets/imgs/hardware/section/${item.name}`;
     img.alt = `${item.alt}`;
-    
-    img.onmouseover = () => CreateModalInfo(item.title, `./assets/imgs/hardware/tooltip/${item.info.name}`, item.info.description, true, INFO_MODAL_ROOT, figureCoords);
-    img.onmouseout = () => CreateModalInfo(item.title, `./assets/imgs/hardware/tooltip/${item.info.name}`, item.info.description, false, INFO_MODAL_ROOT, figureCoords);
+
+    const imgObj = {
+      imageSrc: `./assets/imgs/hardware/tooltip/${item.info.name}`,
+      imageTitle: item.title,
+      imageDescription: item.info.description,
+      imageComplement: item.info.complement
+    };
+
+    img.onmouseover = () => CreateModalInfo(imgObj, true, INFO_MODAL_ROOT, { top: figure.offsetTop - 220, left: figure.offsetLeft });
+    img.onmouseout = () => CreateModalInfo(imgObj, false, INFO_MODAL_ROOT, { top: figure.offsetTop - 220, left: figure.offsetLeft });
+
     img.onclick = () => { console.log("Show feedbackModal!") };
 
     figure.append(img);

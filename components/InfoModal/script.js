@@ -1,23 +1,24 @@
-function CreateModalInfo(imageTitle, imageSrc, imageDescription, statusModal, infoRoot, coords) {
+function CreateModalInfo(imageData, statusModal, infoRoot, coords) {
   const container = document.createElement("section");
   container.id = "modal_info_container";
   container.classList.add("modal_info_container");
 
-  container.append(figure(imageSrc));
-  container.append(titleDescription(imageTitle, imageDescription));
-
-  if (statusModal) {
-    container.style.display = "flex";
-    container.style.top = `${coords}px`;
-  } else {
-    container.style.display = "none";
-  };
+  container.append(figure(imageData.imageSrc));
+  container.append(titleDescription(imageData.imageTitle, imageData.imageDescription, imageData.imageComplement));
 
   const root = document.getElementById(infoRoot);
   while (root.firstChild) {
     root.removeChild(root.lastChild);
   }
   root.appendChild(container);
+
+  if (statusModal) {
+    root.style.display = "flex";
+    root.style.top = `${coords.top}px`;
+    root.style.left = `${coords.left}px`;
+  } else {
+    root.style.display = "none";
+  };
 }
 
 function figure(imageSrc) {
@@ -32,7 +33,7 @@ function figure(imageSrc) {
   return figure;
 };
 
-function titleDescription(imageTitle, imageDescription) {
+function titleDescription(imageTitle, imageDescription, imageComplement) {
   const titleDescriptionSection = document.createElement("section");
   titleDescriptionSection.classList.add("title_description");
 
@@ -42,8 +43,15 @@ function titleDescription(imageTitle, imageDescription) {
   const description = document.createElement("p");
   description.textContent = imageDescription;
 
+  const br = document.createElement("br");
+
+  const complement = document.createElement("p");
+  complement.textContent = imageComplement;
+
   titleDescriptionSection.append(title);
   titleDescriptionSection.append(description);
+  titleDescriptionSection.append(br);
+  titleDescriptionSection.append(complement);
 
   return titleDescriptionSection;
 };
