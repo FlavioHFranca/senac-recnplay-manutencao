@@ -54,6 +54,4 @@ const CreateFeedbackModal = (title, description) => {
   };
 };
 
-CreateFeedbackModal("Resolvido com sucesso!", "Muito bom, você conseguiu resolver o problem. É muito comum uma Placa-mãe defeituosa causar esse tipo de problema no seu computador.");
-
-// export default CreateFeedbackModal;
+export default CreateFeedbackModal;

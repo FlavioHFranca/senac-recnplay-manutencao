@@ -2,6 +2,7 @@ import GetImages from "../../constants/GetImages.js";
 import CreateIcon from "../../constants/CreateIcon.js";
 import InfoButton from "../InfoButton/script.js";
 import CreateModalInfo from "../InfoModal/script.js";
+import CreateFeedbackModal from "../FeedbackModal/script.js";
 
 const INFO_MODAL_ROOT = "info_modal_root";
 
@@ -63,17 +64,33 @@ function imgContainer() {
       imageSrc: `./assets/imgs/software/tooltip/${item.info.name}`,
       imageTitle: item.title,
       imageDescription: item.info.description,
-      imageComplement: item.info.complement
+      imageComplement: item.info.complement,
+      imageCode: item.code
     };
     
     img.onmouseover = () => CreateModalInfo(imgObj, true, INFO_MODAL_ROOT, { top: figure.offsetTop - 220, left: figure.offsetLeft });
     img.onmouseout = () => CreateModalInfo(imgObj, false, INFO_MODAL_ROOT, { top: figure.offsetTop - 220, left: figure.offsetLeft });
 
-    img.onclick = () => { console.log("Show feedbackModal!") };
+    img.onclick = () => showFeedbackModal(imgObj);
 
     figure.append(img);
     container.append(figure);
   });
 
   return container;
+};
+
+async function getCurrentProblem() {
+  return JSON.parse(localStorage.getItem("current_problem"));
+}
+
+const showFeedbackModal = async (imgObj) => {
+  const currentProblem = await getCurrentProblem();
+
+  if (imgObj.imageCode == currentProblem.problem_datas.resolve_code) {
+    CreateFeedbackModal("Resolvido com sucesso!", `Muito bom, você conseguiu resolver o problema. É muito comum uma ${imgObj.title} causar esse tipo de problema no seu computador.`);
+  } else {
+    CreateFeedbackModal("O defeito continua...!", `Não é muito comum ${imgObj.title} causar esse tipo de problema no seu computador. Tente outra peça.`);
+  };
+
 };

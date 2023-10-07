@@ -50,5 +50,5 @@ async function startGame() {
   console.log(currentProblem);
 
   ProblemSection(currentProblem.problem_datas.description);
-  AdditionalInformation(currentProblem.problem_datas.additional_information)
+  AdditionalInformation(currentProblem.problem_datas.additional_information);
 };
