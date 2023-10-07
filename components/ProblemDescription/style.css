@@ -1,11 +1,11 @@
 .problem_section_root {
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   z-index: var(--component);
-  max-width: 320px;
+  width: 320px;
   height: auto;
   margin: 0px 0px 20px 0px;
   padding: 0;
@@ -21,7 +21,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   z-index: var(--sub-component);
-  max-width: 288px;
+  width: 100%;
   height: auto;
   margin: 0;
   padding: 16px 16px 30px 16px;

@@ -1,4 +1,6 @@
 import GetProblems from "./Problems.js";
+import ProblemSection from "../components/ProblemDescription/script.js";
+import AdditionalInformation from "../components/AdditionalInformation/script.js";
 
 const ProblemDatabase = "problem_database";
 const CurrentProblem = "current_problem";
@@ -44,9 +46,9 @@ async function startGame() {
     currentProblem = await getCurrentProblem();
   };
 
-  // console.log(listProblem);
-  // console.log(currentProblem);
+  console.log(listProblem);
+  console.log(currentProblem);
 
-  // Add currentProblem in component;
-
+  ProblemSection(currentProblem.problem_datas.description);
+  AdditionalInformation(currentProblem.problem_datas.additional_information)
 };

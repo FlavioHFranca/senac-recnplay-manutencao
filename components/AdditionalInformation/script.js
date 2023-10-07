@@ -32,6 +32,4 @@ function AdditionalInformation(info) {
   };
 };
 
-AdditionalInformation("O defeito apareceu depois que o cliente abriu um arquivo executável que um amigo lhe enviou por e-mail.");
-
 export default AdditionalInformation;
