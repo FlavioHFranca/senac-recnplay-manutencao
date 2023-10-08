@@ -25,6 +25,9 @@ function AdditionalInformation(info) {
     AddInfoContainer.append(description);
 
     const AddInfoRoot = document.getElementById("additional_info_root");
+    while(AddInfoRoot.firstChild) {
+      AddInfoRoot.removeChild(AddInfoRoot.lastChild)
+    };
     AddInfoRoot.appendChild(AddInfoContainer);
 
   } catch(e) {

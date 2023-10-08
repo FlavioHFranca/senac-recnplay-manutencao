@@ -82,7 +82,7 @@ const CreateFeedbackModal = (title, description, modalStatus) => {
   };
 };
 
-const closeModal = (modaStatus) => {
+const closeModal = (modalStatus) => {
 
   const root = document.getElementById("fm_root");
   const container = document.getElementById("fm_container");
@@ -107,7 +107,7 @@ const closeModal = (modaStatus) => {
     };
   }, 1200);
 
-  if (modaStatus) {
+  if (modalStatus == "success") {
     CongratulationModal("Parabéns! Você ganhou uma peça.", { src: "./assets/imgs/congratulation/ram_congrat.png", alt: "Memória ram de 8gb." }, "Você ganhou uma memória RAM de 8 GB por ter resolvido o defeito desse computador.");
   };
 };

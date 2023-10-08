@@ -27,6 +27,9 @@ function ProblemSection(description) {
     problemSectionContainer.append(problemDescription);
 
     const problemSectionRoot = document.getElementById("problem_section_root");
+    while(problemSectionRoot.firstChild) {
+      problemSectionRoot.removeChild(problemSectionRoot.lastChild);
+    };
     problemSectionRoot.appendChild(problemSectionContainer);
 
   } catch(e) { console.log(`Problem section: ${e.message}`); };

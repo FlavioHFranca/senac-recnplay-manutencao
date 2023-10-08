@@ -1,24 +1,45 @@
-const UpdateDatabase = (datas, modalData) => {
-  console.log(datas, modalData);
-};
+import StartGame from "./StartGame.js";
+import UpdatePlayerAttr from "./UpdatePlayerAttr.js";
 
-const closeModal = (root, container) => {
-  const root = document.getElementById("cm_root");
-  const modal = document.getElementById("cm_container");
+const UpdateDatabase = async () => {
+  const currentProblem = localStorage.getItem("current_problem") ? JSON.parse(localStorage.getItem("current_problem")) : false;
+  const listProblem = localStorage.getItem("problem_database") ? JSON.parse(localStorage.getItem("problem_database")) : false;
 
-  modal.classList.add("hidden");
+  listProblem.forEach(problem => {
+    if (problem.id == currentProblem.problem_datas.id) {
+      problem.resolved = true;
+      return true;
+    };
+  });
 
-  setTimeout(() => {
-    modal.style.display = "none";
-    root.classList.add("hidden");
-  }, 500);
+  localStorage.setItem("problem_database", JSON.stringify(listProblem));
+  localStorage.removeItem("current_problem");
 
-  setTimeout(() => {
-    root.style.display = "none";
-    while(root.firstChild) {
-      root.removeChild(root.lastChild);
-    }
-  }, 1000);
+  const updatePlayerAttr = await UpdatePlayerAttr();
+  const startedGame = await StartGame();
+
+  if (updatePlayerAttr && startedGame) {
+
+    const cmRoot = document.getElementById("cm_root");
+    const cmContainer = document.getElementById("cm_container");
+
+    cmContainer.classList.add("hidden");
+
+    setTimeout(() => {
+      cmContainer.style.display = "none";
+      cmContainer.classList.remove("show");
+      cmContainer.classList.remove("hidden");
+      cmRoot.classList.add("hidden");
+    }, 500);
+
+    setTimeout(() => {
+      cmRoot.style.display = "none";
+      cmRoot.classList.remove("show");
+      cmRoot.classList.remove("hidden");
+    }, 1000);
+
+    return true;
+  };
 };
 
 export default UpdateDatabase;

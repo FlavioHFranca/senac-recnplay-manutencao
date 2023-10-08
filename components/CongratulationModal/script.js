@@ -1,4 +1,4 @@
-// import UpdateDatabase from "../../constants/UpdateDatabase/script.js";
+import UpdateDatabase from "../../constants/UpdateDatabase.js";
 
 const CreateHeader = (title) => {
   const header = document.createElement("section");
@@ -38,7 +38,7 @@ const CreateFooter = () => {
   const button = document.createElement("button");
   button.classList.add("cm_btn");
   button.textContent = "Continuar";
-  button.onclick = function () { updateDatabase() };
+  button.onclick = function () { UpdateDatabase() };
 
   footer.appendChild(button);
 
@@ -64,10 +64,6 @@ const CongratulationModal = (title, img, description) => {
     modal.style.display = "flex";
     modal.classList.add("show");
   }, 500);
-};
-
-const updateDatabase = () => {
-  console.log("update database system...");
 };
 
 export default CongratulationModal;

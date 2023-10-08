@@ -4,6 +4,7 @@ import AdditionalInformation from "../components/AdditionalInformation/script.js
 
 const ProblemDatabase = "problem_database";
 const CurrentProblem = "current_problem";
+const playerDatas = "player_datas";
 
 document.addEventListener("DOMContentLoaded", startGame());
 
@@ -13,6 +14,10 @@ async function getProblemDatabase() {
 
 async function getCurrentProblem() {
   return JSON.parse(localStorage.getItem(CurrentProblem));
+}
+
+async function getPlayerDatas() {
+  return JSON.parse(localStorage.getItem(playerDatas));
 }
 
 function randomNumber(arraySize) {
@@ -51,4 +56,8 @@ async function startGame() {
 
   ProblemSection(currentProblem.problem_datas.description);
   AdditionalInformation(currentProblem.problem_datas.additional_information);
+
+  return true;
 };
+
+export default startGame;
