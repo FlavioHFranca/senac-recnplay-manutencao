@@ -4,7 +4,7 @@ import AdditionalInformation from "../components/AdditionalInformation/script.js
 
 const ProblemDatabase = "problem_database";
 const CurrentProblem = "current_problem";
-const playerDatas = "player_datas";
+const playerAttr = "player_attr";
 
 document.addEventListener("DOMContentLoaded", startGame());
 
@@ -16,8 +16,8 @@ async function getCurrentProblem() {
   return JSON.parse(localStorage.getItem(CurrentProblem));
 }
 
-async function getPlayerDatas() {
-  return JSON.parse(localStorage.getItem(playerDatas));
+async function getPlayerAttr() {
+  return JSON.parse(localStorage.getItem(playerAttr));
 }
 
 function randomNumber(arraySize) {
@@ -49,6 +49,13 @@ async function startGame() {
 
     localStorage.setItem(CurrentProblem, JSON.stringify(currentProblemObj));
     currentProblem = await getCurrentProblem();
+  };
+
+  let playerAttrDatabase = await getPlayerAttr();
+
+  if (!playerAttrDatabase) {
+    playerAttrDatabase = { current_defect: 1, score: 10000 };
+    localStorage.setItem(playerAttr, JSON.stringify(playerAttrDatabase));
   };
 
   console.log(listProblem);

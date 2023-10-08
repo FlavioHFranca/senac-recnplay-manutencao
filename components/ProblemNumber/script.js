@@ -3,6 +3,9 @@ import CreateIcon from "../../constants/CreateIcon.js";
 const ProblemNumber = async () => {
   try {
     const problemNumberRoot = document.getElementById("problem_number_root");
+    while(problemNumberRoot.firstChild) {
+      problemNumberRoot.removeChild(problemNumberRoot.lastChild);
+    };
     const componentSection = await createComponent();
     problemNumberRoot.appendChild(componentSection);
   } catch (e) {
@@ -17,8 +20,8 @@ const createComponent = async () => {
   const icon = CreateIcon("fa-screwdriver-wrench");
   const span = document.createElement("span");
 
-  const currentProblem = await getCurrentProblem();
-  span.textContent = `Defeito ${currentProblem.id}`;
+  const playerAttr = await getPlayerAttr();
+  span.textContent = `Defeito ${playerAttr.current_defect}`;
 
   section.append(icon);
   section.append(span);
@@ -26,8 +29,10 @@ const createComponent = async () => {
   return section;
 };
 
-const getCurrentProblem = async () => {
-  return JSON.parse(localStorage.getItem("current_problem"));
+const getPlayerAttr = async () => {
+  return JSON.parse(localStorage.getItem("player_attr"));
 };
 
 ProblemNumber();
+
+export default ProblemNumber;
