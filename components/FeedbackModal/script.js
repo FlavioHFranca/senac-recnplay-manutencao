@@ -1,3 +1,5 @@
+import CongratulationModal from "../CongratulationModal/script.js";
+
 const CreateHeader = (title, modalStatus) => {
   const header = document.createElement("section");
   header.classList.add("fm_header");
@@ -34,14 +36,14 @@ const CreateBody = (description) => {
   return body;
 };
 
-const CreateFooter = () => {
+const CreateFooter = (modaStatus) => {
   const footer = document.createElement("footer");
   footer.classList.add("fm_footer");
 
   const button = document.createElement("button");
   button.classList.add("fm_footer_btn");
   button.textContent = "Continuar";
-  button.onclick = function () { closeModal() };
+  button.onclick = function () { closeModal(modaStatus) };
 
   footer.appendChild(button);
 
@@ -63,7 +65,7 @@ const CreateFeedbackModal = (title, description, modalStatus) => {
 
     container.append(CreateHeader(title, modalStatus));
     container.append(CreateBody(description));
-    container.append(CreateFooter());
+    container.append(CreateFooter(modalStatus));
 
     root.appendChild(container);
 
@@ -80,7 +82,7 @@ const CreateFeedbackModal = (title, description, modalStatus) => {
   };
 };
 
-const closeModal = () => {
+const closeModal = (modaStatus) => {
 
   const root = document.getElementById("fm_root");
   const container = document.getElementById("fm_container");
@@ -104,6 +106,10 @@ const closeModal = () => {
       root.removeChild(root.lastChild);
     };
   }, 1200);
+
+  if (modaStatus) {
+    CongratulationModal("Parabéns! Você ganhou uma peça.", { src: "./assets/imgs/congratulation/ram_congrat.png", alt: "Memória ram de 8gb." }, "Você ganhou uma memória RAM de 8 GB por ter resolvido o defeito desse computador.");
+  };
 };
 
 export default CreateFeedbackModal;
