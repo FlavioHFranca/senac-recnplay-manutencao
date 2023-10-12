@@ -1,7 +1,49 @@
 .fm_root {
   z-index: var(--modal);
+  position: absolute;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #00000080;
+}
+
+.fm_root.show {
+  animation: showRoot 0.5s ease-in-out normal forwards;
+}
+
+.fm_root.hidden {
+  animation: hiddenRoot 0.5s ease-in-out normal forwards;
+}
+
+@keyframes showRoot {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hiddenRoot {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.fm_container {
+  z-index: var(--modal);
   position: relative;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -13,6 +55,42 @@
   border-radius: 20px;
   background-color: #FAFAFA;
   box-shadow: 0px 5px 0px #E6E4F5;
+}
+
+.fm_container.show {
+  animation: showContainer 0.7s ease-in-out normal forwards;
+}
+
+.fm_container.hidden {
+  animation: hiddenContainer 0.7s ease-in-out normal forwards;
+}
+
+@keyframes showContainer {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  70% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hiddenContainer {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
 }
 
 .fm_header {
@@ -27,12 +105,22 @@
   background-color: transparent;
 }
 
-.fm_header i {
-  font-size: 20px;
+.fm_header .fa-circle-check {
+  font-size: 27px;
   color: #5EE348;
-  width: 20px;
-  height: 20px;
-  border: 3px solid #4EC63A;
+  width: 26px;
+  height: 26px;
+  border: 4px solid #4EC63A;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.fm_header .fa-circle-exclamation {
+  font-size: 27px;
+  color: #F5C92B;
+  width: 26px;
+  height: 26px;
+  border: 4px solid #DEB41F;
   border-radius: 50%;
   margin-right: 7px;
 }
@@ -40,7 +128,7 @@
 .fm_header .fm_title {
   font-family: "Nunito", sans-serif;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 800;
   color: #383450;
   margin: 0;
   padding: 0;
@@ -61,13 +149,14 @@
 }
 
 .fm_body .fm_description {
-  font-family: 'Manrope', sans-serif;
+  font-family: "Varela Round", sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #575274;
   margin: 0;
   padding: 0;
   line-height: 150%;
+  letter-spacing: -0.01rem;
 }
 
 .fm_footer {
@@ -100,4 +189,11 @@
   line-height: 100%;
   font-size: 18px;
   line-height: 100%;
+}
+
+.fm_footer .fm_footer_btn:hover {
+  cursor: pointer;
+  border: 2px solid #6340ED;
+  background-color: #8060FF;
+  box-shadow: 0px 4px 0px #4531C0;
 }

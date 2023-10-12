@@ -2,13 +2,15 @@ class GetImages {
   getHardwareImages() {
     const hardwareImageArray = Array(
       { 
-        name: "cooler_secao.png",
+        code: 100,
+        name: "processor_section.png",
         title: "Cooler do Processador",
+        alt: "Processador do computador.",
         info: { 
-          name: "cooler.png",
-          description: "O Cooler é um equipamento que permite que o processador não atinga altas temperaturas, evitando defeitos de funcionamento." 
-        },
-        alt: "Imagem Cooler do processador."
+          name: "processor_tooltip.png",
+          description: "O processador é uma espécie de microship especializado. A sua função é acelerar, endereçar, resolver ou preparar dados, dependendo da aplicação.",
+          complement: "Clique para substituir o processador do computador por outro." 
+        }
       }
     );
     return hardwareImageArray;
@@ -17,14 +19,16 @@ class GetImages {
   getSoftwareImages() {
     const softwareImageArray = Array(
       { 
-        name: "atualizar_so_secao.png",
+        code: 200,
+        name: "att_so_section.png",
         title: "Sistema Operacional",
+        alt: "Sistema Operacional.",
         info: { 
-          name: "atualizar_so.png",
-          description: "O S.O (Sistema Operacional) é um software ou um conjunto de software que fazem o seu computador funcionar." 
-        },
-        alt: "Imagem Sistema Operacional."
-      },
+          name: "att_so_tooltip.png",
+          description: "O S.O (Sistema Operacional) é um software ou um conjunto de software que fazem o seu computador funcionar.",
+          complement: "Clique para atualizar o Sistema Operacional do seu computador"
+        }
+      }
     );
     return softwareImageArray;
   }

@@ -1,17 +1,23 @@
 import CreateIcon from "../../constants/CreateIcon.js";
 
-const Punctuation = (points) => {
+const Punctuation = () => {
   const scoreRoot = document.getElementById("score_root");
-  scoreRoot.appendChild(createComponent(points));
+  while(scoreRoot.firstChild) {
+    scoreRoot.removeChild(scoreRoot.lastChild);
+  };
+  scoreRoot.appendChild(createComponent());
 };
 
-const createComponent = (parameter) => {
+const createComponent = () => {
+
+  const parameter = localStorage.getItem("player_attr") ? JSON.parse(localStorage.getItem("player_attr")) : false;
+
   const section = document.createElement("section");
   section.className = "score";
 
   const icon = CreateIcon("fa-sack-dollar");
   const span = document.createElement("span");
-  span.textContent = parameter ? parameter : "10.000";
+  span.textContent = parameter ? parameter.score : "10.000";
 
   section.append(icon);
   section.append(span);
@@ -20,3 +26,5 @@ const createComponent = (parameter) => {
 };
 
 Punctuation();
+
+export default Punctuation;

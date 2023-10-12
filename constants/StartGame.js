@@ -1,7 +1,10 @@
 import GetProblems from "./Problems.js";
+import ProblemSection from "../components/ProblemDescription/script.js";
+import AdditionalInformation from "../components/AdditionalInformation/script.js";
 
 const ProblemDatabase = "problem_database";
 const CurrentProblem = "current_problem";
+const playerAttr = "player_attr";
 
 document.addEventListener("DOMContentLoaded", startGame());
 
@@ -11,6 +14,10 @@ async function getProblemDatabase() {
 
 async function getCurrentProblem() {
   return JSON.parse(localStorage.getItem(CurrentProblem));
+}
+
+async function getPlayerAttr() {
+  return JSON.parse(localStorage.getItem(playerAttr));
 }
 
 function randomNumber(arraySize) {
@@ -44,9 +51,20 @@ async function startGame() {
     currentProblem = await getCurrentProblem();
   };
 
-  // console.log(listProblem);
-  // console.log(currentProblem);
+  let playerAttrDatabase = await getPlayerAttr();
 
-  // Add currentProblem in component;
+  if (!playerAttrDatabase) {
+    playerAttrDatabase = { current_defect: 1, score: 10000 };
+    localStorage.setItem(playerAttr, JSON.stringify(playerAttrDatabase));
+  };
 
+  console.log(listProblem);
+  console.log(currentProblem);
+
+  ProblemSection(currentProblem.problem_datas.description);
+  AdditionalInformation(currentProblem.problem_datas.additional_information);
+
+  return true;
 };
+
+export default startGame;

@@ -1,5 +1,6 @@
 .notification_root {
   position: absolute;
+  z-index: var(--modal);
   top: -200px;
   display: flex;
   flex-direction: row;

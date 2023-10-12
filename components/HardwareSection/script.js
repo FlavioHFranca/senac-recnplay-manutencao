@@ -2,6 +2,8 @@ import GetImages from "../../constants/GetImages.js";
 import CreateIcon from "../../constants/CreateIcon.js";
 import InfoButton from "../../components/InfoButton/script.js";
 import CreateModalInfo from "../InfoModal/script.js";
+import CreateFeedbackModal from "../FeedbackModal/script.js";
+import computerPowerVerify from "../../constants/computerPowerVerify.js";
 
 const INFO_MODAL_ROOT = "info_modal_root";
 
@@ -16,15 +18,7 @@ function createHardwareSection() {
   hardwareContainer.append(imgContainer());
 
   const hardwareSectionRoot = document.getElementById("hardware_section_root");
-  hardwareSectionRoot.append(createInfoModalRoot());
   hardwareSectionRoot.append(hardwareContainer);
-};
-
-function createInfoModalRoot() {
-  const infoModalRoot = document.createElement("section");
-  infoModalRoot.id = INFO_MODAL_ROOT;
-
-  return infoModalRoot;
 };
 
 function hardwareHeader() {
@@ -63,19 +57,47 @@ function imgContainer() {
     figure.id = "hardware_figure";
     figure.classList.add("hardware_figure");
 
-    const figureCoords = figure.getBoundingClientRect().top - 180;
-
     const img = document.createElement("img");
-    img.src = `./assets/imgs/hardware/imagens_secao/${item.name}`;
+    img.src = `./assets/imgs/hardware/section/${item.name}`;
     img.alt = `${item.alt}`;
-    
-    img.onmouseover = () => CreateModalInfo(item.title, `./assets/imgs/hardware/imagens_descricao/${item.info.name}`, item.info.description, true, INFO_MODAL_ROOT, figureCoords);
-    img.onmouseout = () => CreateModalInfo(item.title, `./assets/imgs/hardware/imagens_descricao/${item.info.name}`, item.info.description, false, INFO_MODAL_ROOT, figureCoords);
-    img.onclick = () => { console.log("Show feedbackModal!") };
+
+    const imgObj = {
+      imageSrc: `./assets/imgs/hardware/tooltip/${item.info.name}`,
+      imageTitle: item.title,
+      imageDescription: item.info.description,
+      imageComplement: item.info.complement,
+      imageCode: item.code
+    };
+
+    img.onmouseover = () => CreateModalInfo(imgObj, true, INFO_MODAL_ROOT, { top: figure.offsetTop - 220, left: figure.offsetLeft });
+    img.onmouseout = () => CreateModalInfo(imgObj, false, INFO_MODAL_ROOT, { top: figure.offsetTop - 220, left: figure.offsetLeft });
+
+    img.onclick = () => showFeedbackModal(imgObj);
 
     figure.append(img);
     container.append(figure);
   });
 
   return container;
+};
+
+async function getCurrentProblem() {
+  return JSON.parse(localStorage.getItem("current_problem"));
+}
+
+const showFeedbackModal = async (imgObj) => {
+
+  const powerComputer = await computerPowerVerify();
+
+  if (!powerComputer) {
+    const currentProblem = await getCurrentProblem();
+
+    if (imgObj.imageCode == currentProblem.problem_datas.resolve_code) {
+      CreateFeedbackModal("Resolvido com sucesso!", `Muito bom, você conseguiu resolver o problema. É muito comum uma ${imgObj.imageTitle} causar esse tipo de problema no seu computador.`, "success");
+    } else {
+      CreateFeedbackModal("O defeito continua...!", `Não é muito comum ${imgObj.imageTitle} causar esse tipo de problema no seu computador. Tente outra peça.`, "fail");
+    };
+  } else {
+    console.log("Por favor, desligar o computador primeiro....");
+  };
 };

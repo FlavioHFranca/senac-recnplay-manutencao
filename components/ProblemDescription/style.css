@@ -1,13 +1,13 @@
 .problem_section_root {
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   z-index: var(--component);
-  max-width: 320px;
+  width: 320px;
   height: auto;
-  margin: 0;
+  margin: 0px 0px 20px 0px;
   padding: 0;
   border: none;
   border-radius: 20px;
@@ -21,13 +21,13 @@
   justify-content: flex-start;
   align-items: flex-start;
   z-index: var(--sub-component);
-  max-width: 288px;
+  width: 100%;
   height: auto;
   margin: 0;
   padding: 16px 16px 30px 16px;
-  border: none;
+  border: 4px solid #CC4528;
   border-radius: 20px;
-  background-color: var(--orange-low);
+  background-color: #FD5A36;
 }
 
 .ps_header {
@@ -50,15 +50,16 @@
 .ps_header h3 {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
+  font-weight: 700;
   color: var(--orange-dark);
   letter-spacing: -0.01rem;
   line-height: 100%;
 }
 
 .problem_description p {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-size: var(--base-size);
   color: var(--orange-medium);
-  letter-spacing: 0.01rem;
-  line-height: 160%;
+  letter-spacing: -0.01rem;
+  line-height: 150%;
 }

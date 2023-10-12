@@ -25,13 +25,14 @@ function AdditionalInformation(info) {
     AddInfoContainer.append(description);
 
     const AddInfoRoot = document.getElementById("additional_info_root");
+    while(AddInfoRoot.firstChild) {
+      AddInfoRoot.removeChild(AddInfoRoot.lastChild)
+    };
     AddInfoRoot.appendChild(AddInfoContainer);
 
   } catch(e) {
     console.log(`Erro: ${e.message}`);
   };
 };
-
-AdditionalInformation("O defeito apareceu depois que o cliente abriu um arquivo executável que um amigo lhe enviou por e-mail.");
 
 export default AdditionalInformation;

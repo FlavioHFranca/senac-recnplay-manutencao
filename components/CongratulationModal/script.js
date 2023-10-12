@@ -1,7 +1,9 @@
+import UpdateDatabase from "../../constants/UpdateDatabase.js";
+
 const CreateHeader = (title) => {
   const header = document.createElement("section");
   header.classList.add("cm_header");
-  
+
   const p = document.createElement("p");
   p.classList.add("cm_title");
   p.textContent = title;
@@ -11,10 +13,10 @@ const CreateHeader = (title) => {
   return header;
 };
 
-const CreateBody = (image,description) => {
-  const body = document.createElement("figure");
-  body.classList.add("cm_figure");
-  
+const CreateBody = (image, description) => {
+  const body = document.createElement("section");
+  body.classList.add("cm_body");
+
   const img = document.createElement("img");
   img.src = image.src;
   img.alt = image.alt;
@@ -35,7 +37,8 @@ const CreateFooter = () => {
 
   const button = document.createElement("button");
   button.classList.add("cm_btn");
-  button.onclick = function() {console.log("cm_btn")};
+  button.textContent = "Continuar";
+  button.onclick = function () { UpdateDatabase() };
 
   footer.appendChild(button);
 
@@ -44,9 +47,23 @@ const CreateFooter = () => {
 
 const CongratulationModal = (title, img, description) => {
   const root = document.getElementById("cm_root");
-  root.append(CreateHeader(title));
-  root.append(CreateBody(img, description));
-  root.append(CreateFooter());
+  const modal = document.createElement("section");
+  modal.id = "cm_container";
+  modal.className = "cm_container";
+
+  modal.append(CreateHeader(title));
+  modal.append(CreateBody(img, description));
+  modal.append(CreateFooter());
+
+  root.appendChild(modal);
+
+  root.style.display = "flex";
+  root.classList.add("show");
+
+  setTimeout(() => {
+    modal.style.display = "flex";
+    modal.classList.add("show");
+  }, 500);
 };
 
 export default CongratulationModal;

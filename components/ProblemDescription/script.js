@@ -27,11 +27,12 @@ function ProblemSection(description) {
     problemSectionContainer.append(problemDescription);
 
     const problemSectionRoot = document.getElementById("problem_section_root");
+    while(problemSectionRoot.firstChild) {
+      problemSectionRoot.removeChild(problemSectionRoot.lastChild);
+    };
     problemSectionRoot.appendChild(problemSectionContainer);
 
   } catch(e) { console.log(`Problem section: ${e.message}`); };
 };
-
-ProblemSection("O computador está muito lento, tanto para ler ou gravar arquivos quanto para executar programas, digitar textos, acessar a Internet, etc. Alguns arquivos do usuário sumiram. Às vezes trava.")
 
 export default ProblemSection;
