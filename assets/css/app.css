@@ -21,7 +21,8 @@
   align-items: center;
   width: calc(1080px - 90px);
   height: calc(849px - 90px);
-  background-color: transparent;
+  /* background-color: transparent; */
+  
 }
 
 .app_container_body {
@@ -89,7 +90,18 @@
   border: 6px solid #3AE11E;
   box-shadow: 0px 12px 0px #36B422;
 }
-
+/* Logo senac fecomercio */
+.senac_fecomercio{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin-top: 100px;
+  
+  
+}
 .app_container_header {
   position: relative;
   display: flex;
