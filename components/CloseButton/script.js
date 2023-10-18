@@ -16,13 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-function closeGame() {
-  // funcionalidade para exibir modal de confirmar;
-  console.log("Modal close game...");
-}
+// Funcionalidade de closeButton junto do reset do local storage
 document.addEventListener("DOMContentLoaded", () => {
   const closeGame = document.getElementById("close_button_root");
   closeGame.addEventListener("click", function () {
     window.location.href = "./index.html";
+    localStorage.clear();
   });
 });
