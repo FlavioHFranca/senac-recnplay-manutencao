@@ -102,7 +102,7 @@ class GetImages {
       },
       { 
         code: 110,
-        name: "ssd_secao.png",
+        name: "ssd_section.png",
         title: "SSD",
         alt: "ssd do computador.",
         info: { 

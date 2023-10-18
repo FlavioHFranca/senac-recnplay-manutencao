@@ -16,7 +16,7 @@
   border: 2px solid #5F5F5F;
   border-radius: 50%;
   font-size: 20px;
-  color: #929292;
+  color: #0dd127;
   background-color: #505050;
   box-shadow: 0px 3px 0px #3C3C3C;
   transition: .1s;
@@ -28,4 +28,43 @@
   border: 2px solid #454545;
   background-color: #333232;
   box-shadow: 0px 3px 0px #0B0B0B;
+}
+
+/* popup */
+dialog{
+  margin: auto;
+  width: 65%;
+  height: 80%;
+  text-align: center;
+  background-color: #FAFAFA;
+  border: 2px solid #E1DEF3;
+  border-radius: 10px;
+  
+}
+dialog::backdrop{
+  background-color: rgba(41, 41, 41, 0.7);
+}
+
+dialog > h1{
+  font-family: "Nunito", sans-serif;
+  font-size: 1.5em;
+  color: #0B0B0B;
+}
+dialog > ul{
+  margin: auto;
+  text-align: center;
+  width: 50%;
+}
+dialog > ul > li > h3{
+  font-family: "Nunito", sans-serif;
+  padding-top: 10px;
+  color: #383450;
+  font-size: 1em;
+}
+dialog> ul > li >p{
+  font-family: "Varela Round", sans-serif;
+  font-size: 0.7em;
+  color: #575274;
+  width: 50%;
+  margin: auto;
 }
