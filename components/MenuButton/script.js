@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     menuButton.id = "menu_button";
     menuButton.classList.add("menu_button");
-    menuButton.appendChild(CreateIcon("fa-bars"));
+    menuButton.appendChild(CreateIcon("fa-code"));
     menuButton.onclick = () => handleMenu();
   
     const menuButtonRoot = document.getElementById("menu_button_root");
