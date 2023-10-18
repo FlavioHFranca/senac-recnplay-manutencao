@@ -20,3 +20,9 @@ function closeGame() {
   // funcionalidade para exibir modal de confirmar;
   console.log("Modal close game...");
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const closeGame = document.getElementById("close_button_root");
+  closeGame.addEventListener("click", function () {
+    window.location.href = "./index.html";
+  });
+});
