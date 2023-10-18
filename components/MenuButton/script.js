@@ -11,6 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
   
     const menuButtonRoot = document.getElementById("menu_button_root");
     menuButtonRoot.appendChild(menuButton);
+    // add popup
+    const buttom = document.querySelector("button")
+    const modal = document.querySelector("dialog")
+    const sair = document.querySelector("dialog")
+
+    buttom.onclick = function(){
+      modal.showModal()
+    }
+    sair.onclick = function(){
+      modal.close()
+    }
   } catch (e) {
     console.log(`Erro: ${e.message}`);
   }

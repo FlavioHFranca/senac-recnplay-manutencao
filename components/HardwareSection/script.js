@@ -98,6 +98,7 @@ const showFeedbackModal = async (imgObj) => {
       CreateFeedbackModal("O defeito continua...!", `Não é muito comum ${imgObj.imageTitle} causar esse tipo de problema no seu computador. Tente outra peça.`, "fail");
     };
   } else {
+    CreateFeedbackModal("Máquina ligada!", "Por favor, desligar o computador primeiro....", "fail");
     console.log("Por favor, desligar o computador primeiro....");
   };
 };
