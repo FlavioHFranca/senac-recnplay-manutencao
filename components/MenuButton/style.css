@@ -30,41 +30,73 @@
   box-shadow: 0px 3px 0px #0B0B0B;
 }
 
+.team_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+
+
+
+}
+
 /* popup */
-dialog{
+dialog {
   margin: auto;
-  width: 65%;
-  height: 80%;
+  width: 55%;
+  height: 90%;
   text-align: center;
   background-color: #FAFAFA;
   border: 2px solid #E1DEF3;
   border-radius: 10px;
-  
 }
-dialog::backdrop{
+
+dialog::backdrop {
   background-color: rgba(41, 41, 41, 0.7);
 }
 
-dialog > h1{
+
+dialog>h1 {
   font-family: "Nunito", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.7em;
   color: #0B0B0B;
+  font-weight: 700;
+  text-decoration: underline;
+
+  margin-top: 15px;
+
 }
-dialog > ul{
+
+dialog>h2 {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.6em;
+  color: #0B0B0B;
+  font-weight: 600;
+
+  margin: 50px 0 10px 0;
+}
+
+dialog>ul {
   margin: auto;
   text-align: center;
   width: 50%;
+
+  list-style: none;
 }
-dialog > ul > li > h3{
+
+dialog>ul>li>h3 {
   font-family: "Nunito", sans-serif;
-  padding-top: 10px;
+  padding: 10px 0;
   color: #383450;
-  font-size: 1em;
+  font-size: 1.4em;
 }
-dialog> ul > li >p{
+
+dialog>ul>li>a {
   font-family: "Varela Round", sans-serif;
-  font-size: 0.7em;
+  font-size: 1.2em;
   color: #575274;
   width: 50%;
   margin: auto;
+  padding: 20px;
+  text-decoration: none;
 }
