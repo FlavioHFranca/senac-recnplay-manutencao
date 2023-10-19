@@ -3,12 +3,12 @@ import CreateIcon from "../../constants/CreateIcon.js";
 document.addEventListener("DOMContentLoaded", () => {
   try {
     const menuButton = document.createElement("button");
-  
+
     menuButton.id = "menu_button";
     menuButton.classList.add("menu_button");
-    menuButton.appendChild(CreateIcon("fa-bars"));
+    menuButton.appendChild(CreateIcon("fa-code"));
     menuButton.onclick = () => handleMenu();
-  
+
     const menuButtonRoot = document.getElementById("menu_button_root");
     menuButtonRoot.appendChild(menuButton);
     // add popup
@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.querySelector("dialog")
     const sair = document.querySelector("dialog")
 
-    buttom.onclick = function(){
+    buttom.onclick = function () {
       modal.showModal()
     }
-    sair.onclick = function(){
+    sair.onclick = function () {
       modal.close()
     }
   } catch (e) {
