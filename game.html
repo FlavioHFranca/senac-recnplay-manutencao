@@ -1,173 +1,209 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Simulador de Defeitos</title>
-    <link rel="icon" type="image/x-icon" href="./assets/imgs/game/ico_70_info_desk_white.png">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Varela+Round&display=swap"
-      rel="stylesheet">
+  <title>INFO DESK - Simulador de Defeitos</title>
+  <link rel="icon" type="image/x-icon" href="./assets/imgs/game/favicon_info_desk_cinza.png">
 
-    <!-- font awesome -->
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Varela+Round&display=swap"
+    rel="stylesheet">
 
-    <!-- colors, typography, layers, globalstyle -->
-    <link rel="stylesheet" href="./assets/css/color_palette.css">
-    <link rel="stylesheet" href="./assets/css/typography.css">
-    <link rel="stylesheet" href="./assets/css/layers.css">
-    <link rel="stylesheet" href="./assets/css/global_style.css">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- app -->
-    <link rel="stylesheet" href="./assets/css/app.css">
+  <!-- colors, typography, layers, globalstyle -->
+  <link rel="stylesheet" href="./assets/css/color_palette.css">
+  <link rel="stylesheet" href="./assets/css/typography.css">
+  <link rel="stylesheet" href="./assets/css/layers.css">
+  <link rel="stylesheet" href="./assets/css/global_style.css">
 
-    <!-- components -->
-    <link rel="stylesheet" href="./components/AdditionalInformation/style.css">
-    <link rel="stylesheet" href="./components/Background/style.css">
-    <link rel="stylesheet" href="./components/CloseButton/style.css">
-    <link rel="stylesheet" href="./components/ComputerSection/style.css">
-    <link rel="stylesheet" href="./components/CongratulationModal/style.css">
-    <link rel="stylesheet" href="./components/FeedbackModal/style.css">
-    <link rel="stylesheet" href="./components/HardwareSection/style.css">
-    <link rel="stylesheet" href="./components/InfoButton/style.css">
-    <link rel="stylesheet" href="./components/InfoModal/style.css">
-    <link rel="stylesheet" href="./components/MenuButton/style.css">
-    <link rel="stylesheet" href="./components/Notification/style.css">
-    <link rel="stylesheet" href="./components/PowerButton/style.css">
-    <link rel="stylesheet" href="./components/PrimaryButton/style.css">
-    <link rel="stylesheet" href="./components/ProblemDescription/style.css">
-    <link rel="stylesheet" href="./components/ProblemNumber/style.css">
-    <link rel="stylesheet" href="./components/Score/style.css">
-    <link rel="stylesheet" href="./components/SoftwareSection/style.css">
-    <link rel="stylesheet" href="./components/ViewCabinetButton/style.css">
-    <link rel="stylesheet" href="./components/ViewDisplayButton/style.css">
+  <!-- app -->
+  <link rel="stylesheet" href="./assets/css/app.css">
 
-  </head>
-  <body>
+  <!-- components -->
+  <link rel="stylesheet" href="./components/AdditionalInformation/style.css">
+  <link rel="stylesheet" href="./components/Background/style.css">
+  <link rel="stylesheet" href="./components/CloseButton/style.css">
+  <link rel="stylesheet" href="./components/ComputerSection/style.css">
+  <link rel="stylesheet" href="./components/CongratulationModal/style.css">
+  <link rel="stylesheet" href="./components/FeedbackModal/style.css">
+  <link rel="stylesheet" href="./components/HardwareSection/style.css">
+  <link rel="stylesheet" href="./components/InfoButton/style.css">
+  <link rel="stylesheet" href="./components/InfoModal/style.css">
+  <link rel="stylesheet" href="./components/MenuButton/style.css">
+  <link rel="stylesheet" href="./components/Notification/style.css">
+  <link rel="stylesheet" href="./components/PowerButton/style.css">
+  <link rel="stylesheet" href="./components/PrimaryButton/style.css">
+  <link rel="stylesheet" href="./components/ProblemDescription/style.css">
+  <link rel="stylesheet" href="./components/ProblemNumber/style.css">
+  <link rel="stylesheet" href="./components/Score/style.css">
+  <link rel="stylesheet" href="./components/SoftwareSection/style.css">
+  <link rel="stylesheet" href="./components/ViewCabinetButton/style.css">
+  <link rel="stylesheet" href="./components/ViewDisplayButton/style.css">
 
-    <section id="app" class="app">
+</head>
 
-      <section id="notification_root" class="notification_root"></section>
-      <section id="fm_root" class="fm_root"></section>
-      <section id="cm_root" class="cm_root"></section>
+<body>
 
-      <section id="app_container" class="app_container">
+  <section id="app" class="app">
 
-        <section class="app_container_header">
-          <section class="app_container_header_wrapper">
-            <section id="problem_number_root" class="problem_number_root"></section>
-            <section id="score_root" class="score_root"></section>
-          </section>
-          <section class="app_container_header_wrapper">
-            <section id="menu_button_root" class="menu_button_root">
-              <!-- Menu popup -->
-              <dialog>
-                <h1>Mentor:</h1> 
-                <ul>
-                  <li><h3>Gabriel Cajá</h3></li>
-                  <li>
-                    
-                    <p>
-                       
-                    </p>
-                  </li>
-                </ul>
-                <ul>
-                  <li><h3>Guilherme Vinícus</h3></li>
-                  <li>
-                    
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    </p>
-                  </li>
-                </ul>
-                <ul>
-                  <li><h3>Jean Luca</h3></li>
-                  <li>
-                    
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    </p>
-                  </li>
-                </ul>
-                <ul>
-                  <li><h3>Marcos Lopes</h3></li>
-                  <li>
-                    
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    </p>
-                  </li>
-                </ul>
-                <ul>
-                  <li><h3>Flávio França</h3></li>
-                  
-                  <br>
-                  <a href="https://github.com/FlavioHFranca">github.com/FlavioHFranca</a>
-                  <a href="linkedin.com/in/flavio-franca">linkedin.com/in/flavio-franca</a>
-                  
-                </ul>
-                
-                
-              </dialog>
-            </section>
-            <section id="close_button_root" class="close_button_root"></section>
-          </section>
+    <section id="notification_root" class="notification_root"></section>
+    <section id="fm_root" class="fm_root"></section>
+    <section id="cm_root" class="cm_root"></section>
+
+    <section id="app_container" class="app_container">
+
+      <section class="app_container_header">
+        <section class="app_container_header_wrapper">
+          <section id="problem_number_root" class="problem_number_root"></section>
+          <section id="score_root" class="score_root"></section>
         </section>
+        <section class="app_container_header_wrapper">
+          <section id="menu_button_root" class="menu_button_root">
+            <!-- Menu popup -->
+            <dialog>
 
-        <section class="computer_problem_info">
-          <section id="computer_section_root" class="computer_section_root">
-            <section id="view_display_button_root" class="view_display_button_root"></section>
-            <section id="view_cabinet_button_root" class="view_cabinet_button_root"></section>
-            <section id="power_button_root" class="power_button_root"></section>
+              <h1>INFO DESK - Simulador de Defeitos</h1>
+
+              <h2>Product Owner:</h2>
+              <ul>
+                <li>
+                  <h3>Matheus Eloim</h3>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/matheus-eloim/" target="_blank"><i class="fa-brands fa-linkedin"
+                      style="color: #575274;"></i> LinkedIn</a>
+                  <a href="https://github.com/meloim" target="_blank"><i class="fa-brands fa-github"
+                      style="color: #575274;"></i> GitHub</a>
+                </li>
+              </ul>
+
+              <h2>Scrum Master:</h2>
+
+              <ul>
+                <li>
+                  <h3>Guilherme Silva</h3>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/guilhermevssilva/" target="_blank"><i
+                      class="fa-brands fa-linkedin" style="color: #575274;"></i> LinkedIn</a>
+                  <a href="https://github.com/guiviniciuss" target="_blank"><i class="fa-brands fa-github"
+                      style="color: #575274;"></i> GitHub</a>
+                </li>
+              </ul>
+
+              <h2>Development Team:</h2>
+
+              <ul>
+                <li>
+                  <h3>Flávio França</h3>
+                </li>
+                <li>
+                  <a href="http://linkedin.com/in/flavio-franca" target="_blank"><i class="fa-brands fa-linkedin"
+                      style="color: #575274;"></i> LinkedIn</a>
+                  <a href="http://github.com/FlavioHFranca" target="_blank"><i class="fa-brands fa-github"
+                      style="color: #575274;"></i> GitHub</a>
+                </li>
+              </ul>
+              </ul>
+
+              <ul>
+                <li>
+                  <h3>Gabriel Cajá</h3>
+                </li>
+                <li>
+                  <a href="http://www.linkedin.com/in/gabrieldeveloper235" target="_blank"><i
+                      class="fa-brands fa-linkedin" style="color: #575274;"></i> LinkedIn</a>
+                  <a href="https://github.com/Gabrielsenac007" target="_blank"><i class="fa-brands fa-github"
+                      style="color: #575274;"></i> GitHub</a>
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <h3>Jean Almeida</h3>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/jean-luca-242925218/" target="_blank"><i
+                      class="fa-brands fa-linkedin" style="color: #575274;"></i> LinkedIn</a>
+                  <a href="https://github.com/JeanLucaaa" target="_blank"><i class="fa-brands fa-github"
+                      style="color: #575274;"></i> GitHub</a>
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <h3>Marcos Aurélio</h3>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/marcos-aur%C3%A9lio-4566a4237/" target="_blank"><i
+                      class="fa-brands fa-linkedin" style="color: #575274;"></i> LinkedIn</a>
+                  <a href="https://github.com/marcoslopes22" target="_blank"><i class="fa-brands fa-github"
+                      style="color: #575274;"></i> GitHub</a>
+                </li>
+              </ul>
+
+            </dialog>
           </section>
-          <section class="computer_problem_info_wrapper">
-            <section id="problem_section_root" class="problem_section_root"></section>
-            <section id="additional_info_root" class="additional_info_root"></section>
-          </section>
-        </section>
 
-        <section class="hardware_software_section">
-          <section id="info_modal_root" class="info_modal_root"></section>
-          <section id="hardware_section_root" class="hardware_section_root"></section>
-          <section id="software_section_root" class="software_section_root"></section>
+          <section id="close_button_root" class="close_button_root"></section>
         </section>
-
       </section>
-      
-      <section id="background_root" class="background_root"></section>
+
+      <section class="computer_problem_info">
+        <section id="computer_section_root" class="computer_section_root">
+          <section id="view_display_button_root" class="view_display_button_root"></section>
+          <section id="view_cabinet_button_root" class="view_cabinet_button_root"></section>
+          <section id="power_button_root" class="power_button_root"></section>
+        </section>
+        <section class="computer_problem_info_wrapper">
+          <section id="problem_section_root" class="problem_section_root"></section>
+          <section id="additional_info_root" class="additional_info_root"></section>
+        </section>
+      </section>
+
+      <section class="hardware_software_section">
+        <section id="info_modal_root" class="info_modal_root"></section>
+        <section id="hardware_section_root" class="hardware_section_root"></section>
+        <section id="software_section_root" class="software_section_root"></section>
+      </section>
+
     </section>
 
-    <script src="./constants/StartGame.js" type="module"></script>
+    <section id="background_root" class="background_root"></section>
+  </section>
 
-    <script src="./components/AdditionalInformation/script.js" type="module"></script>
-    <script src="./components/Background/script.js" type="module"></script>
-    <script src="./components/CloseButton/script.js" type="module"></script>
-    <script src="./components/ComputerSection/script.js" type="module"></script>
-    <script src="./components/CongratulationModal/script.js" type="module"></script>
-    <script src="./components/FeedbackModal/script.js" type="module"></script>
-    <script src="./components/HardwareSection/script.js" type="module"></script>
-    <script src="./components/InfoButton/script.js" type="module"></script>
-    <script src="./components/InfoModal/script.js" type="module"></script>
-    <script src="./components/MenuButton/script.js" type="module"></script>
-    <script src="./components/Notification/script.js" type="module"></script>
-    <script src="./components/PowerButton/script.js" type="module"></script>
-    <script src="./components/PrimaryButton/script.js" type="module"></script>
-    <script src="./components/ProblemDescription/script.js" type="module"></script>
-    <script src="./components/ProblemNumber/script.js" type="module"></script>
-    <script src="./components/Score/script.js" type="module"></script>
-    <script src="./components/SoftwareSection/script.js" type="module"></script>
-    <script src="./components/ViewCabinetButton/script.js" type="module"></script>
-    <script src="./components/ViewDisplayButton/script.js" type="module"></script>
+  <script src="./constants/StartGame.js" type="module"></script>
 
-  </body>
+  <script src="./components/AdditionalInformation/script.js" type="module"></script>
+  <script src="./components/Background/script.js" type="module"></script>
+  <script src="./components/CloseButton/script.js" type="module"></script>
+  <script src="./components/ComputerSection/script.js" type="module"></script>
+  <script src="./components/CongratulationModal/script.js" type="module"></script>
+  <script src="./components/FeedbackModal/script.js" type="module"></script>
+  <script src="./components/HardwareSection/script.js" type="module"></script>
+  <script src="./components/InfoButton/script.js" type="module"></script>
+  <script src="./components/InfoModal/script.js" type="module"></script>
+  <script src="./components/MenuButton/script.js" type="module"></script>
+  <script src="./components/Notification/script.js" type="module"></script>
+  <script src="./components/PowerButton/script.js" type="module"></script>
+  <script src="./components/PrimaryButton/script.js" type="module"></script>
+  <script src="./components/ProblemDescription/script.js" type="module"></script>
+  <script src="./components/ProblemNumber/script.js" type="module"></script>
+  <script src="./components/Score/script.js" type="module"></script>
+  <script src="./components/SoftwareSection/script.js" type="module"></script>
+  <script src="./components/ViewCabinetButton/script.js" type="module"></script>
+  <script src="./components/ViewDisplayButton/script.js" type="module"></script>
+
+</body>
+
 </html>

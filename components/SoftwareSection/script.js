@@ -2,6 +2,7 @@ import GetImages from "../../constants/GetImages.js";
 import CreateIcon from "../../constants/CreateIcon.js";
 import InfoButton from "../InfoButton/script.js";
 import CreateModalInfo from "../InfoModal/script.js";
+import computerPowerVerify from "../../constants/computerPowerVerify.js";
 import CreateFeedbackModal from "../FeedbackModal/script.js";
 
 const INFO_MODAL_ROOT = "info_modal_root";
@@ -94,9 +95,10 @@ const showFeedbackModal = async (imgObj) => {
     if (imgObj.imageCode == currentProblem.problem_datas.resolve_code) {
       CreateFeedbackModal("Resolvido com sucesso!", `Muito bom, você conseguiu resolver o problema. É muito comum uma ${imgObj.title} causar esse tipo de problema no seu computador.`, "success");
     } else {
-      CreateFeedbackModal("O defeito continua...!", `Não é muito comum ${imgObj.title} causar esse tipo de problema no seu computador. Tente outra peça.`, "fail");
+      CreateFeedbackModal("O defeito continua...!", `Não é muito comum ${imgObj.imageTitle} causar esse tipo de problema no seu computador. Tente outra peça.`, "fail");
     };
   } else {
+    CreateFeedbackModal("Computador desligado!", "Ligar o computador primeiro....", "fail");
     console.log("Ligar o computador primeiro....");
   };
 
