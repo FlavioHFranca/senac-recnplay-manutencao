@@ -54,8 +54,11 @@ const CongratulationModal = (title, img, description) => {
   modal.append(CreateHeader(title));
   modal.append(CreateBody(img, description));
   modal.append(CreateFooter());
-
+  while(root.firstChild){
+    root.removeChild(root.lastChild);
+  }
   root.appendChild(modal);
+
 
   root.style.display = "flex";
   root.classList.add("show");
@@ -63,7 +66,7 @@ const CongratulationModal = (title, img, description) => {
   setTimeout(() => {
     modal.style.display = "flex";
     modal.classList.add("show");
-  }, 500);
+  }, 500);
 };
 
 export default CongratulationModal;
