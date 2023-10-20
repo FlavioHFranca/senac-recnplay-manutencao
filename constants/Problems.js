@@ -5,7 +5,7 @@ function GetProblems() {
     {
       // Processador
       id: 1,
-      description: "O computador liga normalmente, mas a placa-mãe está fazendo alguns bips, o cooler começa a girar em velocidade mais alta.",
+      description: "O computador liga normalmente, mas a placa-mãe está fazendo alguns bipes, o cooler começa a girar em velocidade mais rápida.",
       additional_information: "O sistema operacional não consegue iniciar.",
       resolved: false,
       resolve_code: 101
@@ -13,16 +13,16 @@ function GetProblems() {
     {
       // Placa-mãe
       id: 2,
-      description: "O computador apresenta problemas de estabilidade, podendo travar ou reiniciar durante o uso e antes do boot",
-      additional_information: "Não há informações adicionais.",
+      description: "O computador levou uma queda e está apresentando bips para iniciar.",
+      additional_information: "O computador só inicia depois de bipar e reiniciar algumas vezes.",
       resolved: false,
-      resolve_code: 102
+      resolve_code: 101
     },
     {
       // Cooler de resfriamento
       id: 3,
-      description: "O computador depois de um certo tempo ligado desliga sozinho e demora um tempo para poder ligá-lo. ",
-      additional_information: "Ao verificar o monitoramento, assim que iniciada a máquina, é verificado que o computador está com uma temperatura acima do normal.",
+      description: "O computador, depois de um certo tempo ligado, desliga sozinho e demora um tempo para poder ligá-lo novamente.",
+      additional_information: "Assim que iniciada a máquina, é verificado que o computador está com uma temperatura acima do normal.",
       resolved: false,
       resolve_code: 103
     },
