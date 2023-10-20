@@ -108,7 +108,7 @@ const closeModal = (modalStatus) => {
   }, 1200);
 
   if (modalStatus == "success") {
-    CongratulationModal("Parabéns! Você ganhou uma peça.", { src: "./assets/imgs/congratulation/ram_congrat.png", alt: "Memória ram de 8gb." }, "Você ganhou uma memória RAM de 8 GB por ter resolvido o defeito desse computador.");
+    CongratulationModal("Parabéns! Você acertou e consertou o computador!", { src: "./assets/imgs/congratulation/premio.png", alt: "Premio" }, "Você ganhou mais 100 pontos!");
   };
 };
 
